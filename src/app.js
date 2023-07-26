@@ -7,6 +7,7 @@ const userRoute=require("./routes/users");
 const billingRoute = require("./routes/billing");
 const productRoute = require("./routes/product");
 const providerRoute = require("./routes/provider");
+const pricingRoute = require("./routes/pricing");
 
 // mongoose.connect('mongodb://localhost:27017/new-database', {  useNewUrlParser: true, useUnifiedTopology: true })
 //   .then(() => {
@@ -25,7 +26,7 @@ app.use("/v1", userRoute);
 app.use("/v1", billingRoute);
 app.use("/v1", productRoute);
 app.use("/v1", providerRoute);
-
+app.use("/v1", pricingRoute);
 
 
 // app.patch("/users/:id", async(req, res)=>{

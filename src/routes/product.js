@@ -32,4 +32,16 @@ productRoute.delete("/product/:id", async(req, res)=>{
   }
 })
 
+productRoute.patch("/product/:id", async(req, res)=>{
+  try{
+    const _id=req.params.id;
+    const updateProduct=await Product.findByIdAndUpdate(_id, req.body, {
+      new: true
+    });
+    res.send(updateProduct);
+
+  }catch(e){
+    res.status(400).send(updateProduct);
+  }
+})
 module.exports=productRoute;

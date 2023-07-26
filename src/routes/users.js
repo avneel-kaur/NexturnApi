@@ -32,4 +32,16 @@ userRoute.delete("/users/:id", async(req, res)=>{
    }
 })
 
+userRoute.patch("/user/:id", async(req, res)=>{
+   try{
+     const _id=req.params.id;
+     const updateUser=await User.findByIdAndUpdate(_id, req.body, {
+       new: true
+     });
+     res.send(updateUser);
+ 
+   }catch(e){
+     res.status(400).send(updateUser);
+   }
+ })
 module.exports=userRoute;

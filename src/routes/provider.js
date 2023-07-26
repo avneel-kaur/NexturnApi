@@ -33,4 +33,18 @@ providerRoute.delete("/provider/:id", async(req, res)=>{
     }
  })
  
+ providerRoute.patch("/provider/:id", async(req, res)=>{
+  try{
+    const _id=req.params.id;
+    const updateProvider=await Provider.findByIdAndUpdate(_id, req.body, {
+      new: true
+    });
+    res.send(updateProvider);
+
+  }catch(e){
+    res.status(400).send(updateProvider);
+  }
+})
+
+
 module.exports=providerRoute;

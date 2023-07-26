@@ -31,4 +31,18 @@ billingRoute.delete("/billing/:id", async(req, res)=>{
     res.status(500).send(e);
   }
 })
+
+billingRoute.patch("/billing/:id", async(req, res)=>{
+  try{
+    const _id=req.params.id;
+    const updateBills=await Billing.findByIdAndUpdate(_id, req.body, {
+      new: true
+    });
+    res.send(updateBills);
+
+  }catch(e){
+    res.status(400).send(updateBills);
+  }
+})
+
 module.exports=billingRoute;
