@@ -1,11 +1,11 @@
  const mongoose=require('mongoose');
 
- mongoose.connect('mongodb://localhost:27017/database',{
-    userCreateIndex: true,
-    userNewUrlParser: true,
-    useUnifiedTopology: true
- }).then(()=>{
-    console.log("connected")
- }).catch((e)=>{
-    console.log("no connection");
+ mongoose.connect('mongodb://localhost:27017/new-database', {  useNewUrlParser: true, useUnifiedTopology: true })
+ .then(() => {
+   console.log('Connected to MongoDB!');
  })
+ .catch(error => {
+   console.error('Error connecting to MongoDB:', error);
+ });
+
+ module.exports = mongoose.connection;

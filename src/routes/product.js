@@ -22,4 +22,14 @@ productRoute.post("/product", async(req, res)=>{
      res.send(e);
       }
 })
+
+productRoute.delete("/product/:id", async(req, res)=>{
+  try{
+     const getProducttodelete=await Product.findByIdAndDelete(req.params.id);
+     res.send(getProducttodelete);
+  }catch(e){
+    res.status(500).send(e);
+  }
+})
+
 module.exports=productRoute;

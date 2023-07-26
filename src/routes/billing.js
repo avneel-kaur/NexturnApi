@@ -22,4 +22,13 @@ billingRoute.post("/billing", async(req, res)=>{
      res.send(e);
       }
 })
+
+billingRoute.delete("/billing/:id", async(req, res)=>{
+  try{
+     const getbilltodelete=await Billing.findByIdAndDelete(req.params.id);
+     res.send(getbilltodelete);
+  }catch(e){
+    res.status(500).send(e);
+  }
+})
 module.exports=billingRoute;

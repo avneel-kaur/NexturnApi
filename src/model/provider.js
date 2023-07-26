@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const providerSchema=new mongoose.Schema({
    providerId:{type: Number, required: true},
-   productId:{type: Number, required: true},
+   productId:{ type: mongoose.Schema.Types.ObjectId, ref: 'Product', required: true },
    providerName:{type: String, required: true},
    providerContactPerson:{type: String, required: true},
    providerEmail:{type: String, required: true},
@@ -11,8 +11,8 @@ const providerSchema=new mongoose.Schema({
    providerWebsite:{type: String, required: true},
    provisionCost:{type: String, required: true},
     provisionQuantity:{type: String, required: true},
-    provisionDate:{type: String, required: true},
-    contractExpiryDate:{type: String, required: true},
+    provisionDate:{type: Date, required: true},
+    contractExpiryDate:{type: Date, required: true},
     notes:{type: String}
 })
 
